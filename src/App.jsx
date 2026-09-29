@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { LandingPage } from './components/landing/LandingPage';
 import { DhaaraWorkspace } from './components/app/DhaaraWorkspace';
 import { LoginPage } from './pages/LoginPage';
@@ -18,7 +17,7 @@ function AppRoutes() {
   return <Routes>
     <Route path="/" element={<LandingPage onOpenDemo={() => navigate('/app')} onGetStarted={() => navigate('/app')} />} />
     <Route path="/login" element={<LoginPage />} />
-    <Route path="/app/*" element={<ProtectedRoute><AuthenticatedApp /></ProtectedRoute>} />
+    <Route path="/app/*" element={<AuthenticatedApp />} />
     <Route path="/demo" element={<Navigate to="/app" replace />} />
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>;
