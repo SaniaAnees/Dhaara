@@ -1,54 +1,18 @@
-export const DEMO_NOTICE = 'Historical springshed intervention records supplied for DHAARA. They are evidence, not proof that the same intervention will work elsewhere.';
+export const DEMO_NOTICE = 'DHAARA presents documented study observations. Empty fields are retained as unavailable rather than estimated.';
 
+// Prototype catalogue: every value comes from the supplied study notes. Null means unavailable.
 export const DEMO_SPRINGS = [
-  { spring_id: 'AITA-INT', name: 'Aita Barey Dhara', latitude: 27.189017, longitude: 88.23105, elevation: 1600, region: 'Deythang GP, Kaluk Block, Sikkim', geology: 'Phyllite + quartzite', land: 'Community', type: 'Fracture spring', rechargeArea: '5 ha', structureVolume: '454 m³', discharge2010: '3 L/min', observed_discharge: '11 L/min', observation_date: '2011', source: 'Historical intervention study' },
-  { spring_id: 'DOKUNG-INT', name: 'Dokung Dhara', latitude: 27.1976, longitude: 88.300467, elevation: 1200, region: 'Takuthang GP, Kaluk Block, Sikkim', geology: 'Phyllite', land: 'Reserve forest', type: 'Depression spring', rechargeArea: '7 ha', structureVolume: '349 m³', discharge2010: '4 L/min', observed_discharge: '17 L/min', observation_date: '2011', source: 'Historical intervention study' },
-  { spring_id: 'NUNTHALEY-INT', name: 'Nunthaley Dhara', latitude: 27.1888, longitude: 88.231, elevation: 1600, region: 'Deythang GP, Kaluk Block, Sikkim', geology: 'Quartzite + phyllite', land: 'Community', type: 'Depression spring', rechargeArea: '5 ha', structureVolume: '152 m³', discharge2010: '3 L/min', observed_discharge: '11 L/min', observation_date: '2011', source: 'Historical intervention study' },
-  { spring_id: 'KHARKHAREY-INT', name: 'Kharkharey Dhara', latitude: 27.2019, longitude: 88.239183, elevation: 1560, region: 'Deythang GP, Kaluk Block, Sikkim', geology: 'Phyllite', land: 'Reserve forest', type: 'Fracture spring', rechargeArea: '5 ha', structureVolume: '222 m³', discharge2010: '2 L/min', observed_discharge: '8 L/min', observation_date: '2011', source: 'Historical intervention study' },
-  { spring_id: 'MALAGIRI-INT', name: 'Malagiri Dhara', latitude: null, longitude: null, elevation: 975, region: 'Lungchok Kamarey GP, Melli Block, Sikkim', geology: 'Phyllite', land: 'Private', type: 'Depression spring', rechargeArea: '13 ha', structureVolume: '841 m³', discharge2010: '7 L/min', observed_discharge: '20 L/min', observation_date: '2011', source: 'Historical intervention study · coordinates unavailable in supplied record' },
-  { spring_id: 'SP1', name: 'Karkharey Khola', latitude: 27.2019, longitude: 88.239183, elevation: 1562, region: 'Kaluk Block, Sikkim', geology: 'Not specified in technical record', land: 'Not specified', type: 'Fracture spring', observed_discharge: 'Historical discharge not supplied', observation_date: 'Technical study', source: 'Government technical study · SP1' },
-  { spring_id: 'SP2', name: 'Nun Thaley', latitude: 27.1888, longitude: 88.231, elevation: 1604, region: 'Kaluk Block, Sikkim', geology: 'Not specified in technical record', land: 'Not specified', type: 'Depression spring', observed_discharge: 'Historical discharge not supplied', observation_date: 'Technical study', source: 'Government technical study · SP2' },
-  { spring_id: 'SP3', name: 'Aita Barey', latitude: 27.189017, longitude: 88.23105, elevation: 1604, region: 'Kaluk Block, Sikkim', geology: 'Not specified in technical record', land: 'Not specified', type: 'Fracture spring', observed_discharge: 'Historical discharge not supplied', observation_date: 'Technical study', source: 'Government technical study · SP3' },
-  { spring_id: 'SP4', name: 'Dhokung Dhara', latitude: 27.1976, longitude: 88.300467, elevation: 1192, region: 'Kaluk Block, Sikkim', geology: 'Not specified in technical record', land: 'Not specified', type: 'Depression spring', observed_discharge: 'Historical discharge not supplied', observation_date: 'Technical study', source: 'Government technical study · SP4' },
+  { spring_id: 'MALAGIRI', name: 'Malagiri Dhara', region: 'Lungchok Kamarey GP, Sumbuk/Melli area, South Sikkim', latitude: null, longitude: null, elevation: 975, type: 'Depression spring', geology: 'Phyllite', discharge2010: 7.5, discharge2011: 15, source: 'Artificial-recharge study; Dhara Vikas impact documentation', dataQuality: 'Paired discharge documented; coordinates not established' },
+  { spring_id: 'AITBAREY', name: 'Aitbarey Dhara', region: 'Deythang GP, Kaluk, South Sikkim', latitude: null, longitude: null, elevation: 1600, type: 'Fracture spring', geology: 'Phyllite + quartzite', discharge2010: 2, discharge2011: 6, source: 'Artificial-recharge study; Dhara Vikas impact documentation', dataQuality: 'Paired discharge documented; coordinates not established' },
+  { spring_id: 'DOKUNG', name: 'Dokung Dhara', region: 'Takuthang GP, Kaluk, South Sikkim', latitude: null, longitude: null, elevation: 1200, type: 'Depression spring', geology: 'Phyllite', discharge2010: 8, discharge2011: 30, source: 'Artificial-recharge study; Dhara Vikas impact documentation', dataQuality: 'Paired discharge documented; coordinates not established' },
+  { spring_id: 'NUNTHALEY', name: 'Nunthaley Dhara', region: 'Deythang GP, Kaluk, South Sikkim', latitude: null, longitude: null, elevation: 1600, type: 'Depression spring', geology: 'Quartzite + phyllite', discharge2010: 2, discharge2011: 10, source: 'Artificial-recharge study; Dhara Vikas impact documentation', dataQuality: 'Paired discharge documented; coordinates not established' },
+  { spring_id: 'KHARKHAREY', name: 'Kharkharey Dhara / Karkharey Khola', region: 'Deythang GP, Kaluk, South Sikkim', latitude: null, longitude: null, elevation: 1560, type: 'Fracture spring', geology: 'Phyllite', discharge2010: 1, discharge2011: 5, source: 'Artificial-recharge study; Dhara Vikas impact documentation', dataQuality: 'Paired discharge documented; coordinates not established' },
+  { spring_id: 'CHUKUDUM', name: 'Chukudum Dhara', region: 'Kewzing Bakhim GP, Ravangla, South Sikkim', latitude: null, longitude: null, elevation: null, type: null, geology: null, discharge2010: 45, discharge2011: 60, source: 'Dhara Vikas impact documentation', dataQuality: 'Paired discharge documented; hydrogeology not established in supplied source' },
+  { spring_id: 'JAMUNEY', name: 'Jamuney Spring', region: 'South Sikkim', latitude: 27.1215, longitude: 88.367972, elevation: 631, type: 'Depression spring', geology: 'Unconsolidated debris over less-permeable phyllite', discharge2010: null, discharge2011: 4, source: 'Hydrogeological study, January 2011', dataQuality: 'Detailed hydrogeology and water-quality observation', pH: 7.44, salinity: '127 ppm', temperature: '21°C', tds: '227 mg/L', ec: '244 μS', rechargeDescription: 'Western slope above the spring' },
+  { spring_id: 'KUAPANI', name: 'Kuapani Spring', region: 'Paireni area, South Sikkim', latitude: 27.125861, longitude: 88.391889, elevation: 1140, type: 'Depression / fracture system', geology: 'Fractured quartzo-phyllitic rocks with carbonate horizons', discharge2010: null, discharge2011: null, source: 'Hydrogeological study', dataQuality: 'Detailed hydrogeology and water-quality observation', pH: 7.9, salinity: '8.7 ppm', temperature: '19.1°C', tds: '14.5 mg/L', ec: '20.6 μS', rechargeDescription: 'Nine-spring system; fractures guide groundwater movement and accumulation' },
+  { spring_id: 'GATI_GHURPASANEY', name: 'Gati & Ghurpasaney Springs', region: 'South Sikkim', latitude: null, longitude: null, elevation: null, type: null, geology: 'Hydrogeological study documented', discharge2010: null, discharge2011: null, source: 'Hydrogeological study', dataQuality: 'Study documented; detailed values not established in supplied source' },
 ];
 
-export const DEMO_PROFILE = { elevation: '685 m', annualRainfall: '1,450 mm', slope: '14.2°', landCover: 'Forest / mixed agriculture', drainage: '1.7 km/km²', geology: 'Unavailable in demo', observations: 3 };
-// Clearly labelled prototype assessment outputs. They vary by the supplied
-// spring record and are not calibrated predictions or construction advice.
-export const SPRING_ASSESSMENTS = {
-  'AITA-INT': { suitability: 78, confidence: 71, terrain: 'Strong', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Moderate' },
-  'DOKUNG-INT': { suitability: 82, confidence: 74, terrain: 'Strong', rainfall: 'Strong', drainage: 'Good', risk: 'Moderate' },
-  'NUNTHALEY-INT': { suitability: 76, confidence: 69, terrain: 'Good', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Moderate' },
-  'KHARKHAREY-INT': { suitability: 73, confidence: 66, terrain: 'Good', rainfall: 'Moderate', drainage: 'Limited', risk: 'High' },
-  'MALAGIRI-INT': { suitability: 81, confidence: 58, terrain: 'Moderate', rainfall: 'Good', drainage: 'Moderate', risk: 'Partial' },
-  SP1: { suitability: 74, confidence: 61, terrain: 'Good', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Partial' },
-  SP2: { suitability: 77, confidence: 62, terrain: 'Good', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Partial' },
-  SP3: { suitability: 79, confidence: 63, terrain: 'Strong', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Partial' },
-  SP4: { suitability: 80, confidence: 65, terrain: 'Strong', rainfall: 'Good', drainage: 'Good', risk: 'Partial' },
-};
-
-export const assessmentFor = (spring) => SPRING_ASSESSMENTS[spring.spring_id] || SPRING_ASSESSMENTS['AITA-INT'];
-export const EVIDENCE = [['Terrain', 'Strong'], ['Rainfall', 'Strong'], ['LULC', 'Strong'], ['Geology', 'Unavailable'], ['Field data', 'Limited']];
-export const CANDIDATE_SITES = [
-  { id: 'SITE A', name: 'Upper contour', score: 91, risk: 'Low', intervention: 'Contour trench', why: ['High recharge suitability', 'Compatible 14° slope', 'Suitable drainage relationship', 'Lower identified risk'] },
-  { id: 'SITE B', name: 'East drainage edge', score: 87, risk: 'High', intervention: 'Do not prioritise', why: ['Recharge suitability is high', 'High landslide susceptibility outweighs recharge potential', 'Do not prioritise without specialist field and engineering review'] },
-  { id: 'SITE C', name: 'Lower recharge pocket', score: 76, risk: 'Moderate', intervention: 'Recharge pit', why: ['Moderate recharge suitability', 'Drainage relationship is suitable', 'Field verification is required before selection'] },
-];
-
-export const rechargeGeoJson = { type: 'FeatureCollection', features: [{ type: 'Feature', properties: { suitability: 91, class: 'High' }, geometry: { type: 'Polygon', coordinates: [[[84.208,20.46],[84.23,20.49],[84.255,20.48],[84.246,20.455],[84.208,20.46]]] } }, { type: 'Feature', properties: { suitability: 67, class: 'Moderate' }, geometry: { type: 'Polygon', coordinates: [[[84.245,20.45],[84.264,20.47],[84.277,20.45],[84.26,20.432],[84.245,20.45]]] } }] };
-export const sitesGeoJson = { type: 'FeatureCollection', features: [{ type: 'Feature', properties: { id: 'SITE A', score: 91, risk: 'Low' }, geometry: { type: 'Point', coordinates: [84.231,20.473] } }, { type: 'Feature', properties: { id: 'SITE B', score: 84, risk: 'Moderate' }, geometry: { type: 'Point', coordinates: [84.25,20.455] } }, { type: 'Feature', properties: { id: 'SITE C', score: 73, risk: 'High' }, geometry: { type: 'Point', coordinates: [84.261,20.482] } }] };
-
-export function spatialDataFor(spring) {
-  if (!Number.isFinite(spring.longitude) || !Number.isFinite(spring.latitude)) return { spring: { type: 'FeatureCollection', features: [] }, recharge: { type: 'FeatureCollection', features: [] }, sites: { type: 'FeatureCollection', features: [] } };
-  const assessment = assessmentFor(spring);
-  const [lng, lat] = [spring.longitude, spring.latitude];
-  const point = (x, y) => [lng + x, lat + y];
-  return {
-    spring: { type: 'FeatureCollection', features: [{ type: 'Feature', properties: { name: spring.name, source: 'Demonstration spring record' }, geometry: { type: 'Point', coordinates: [lng, lat] } }] },
-    recharge: { type: 'FeatureCollection', features: [
-      { type: 'Feature', properties: { suitability: assessment.suitability, class: 'High', source: 'Derived demonstration layer' }, geometry: { type: 'Polygon', coordinates: [[point(-.018,-.010), point(-.005,.018), point(.019,.010), point(.011,-.014), point(-.018,-.010)]] } },
-      { type: 'Feature', properties: { suitability: Math.max(45, assessment.suitability - 18), class: 'Moderate', source: 'Derived demonstration layer' }, geometry: { type: 'Polygon', coordinates: [[point(.014,-.020), point(.032,-.002), point(.043,-.020), point(.026,-.034), point(.014,-.020)]] } },
-    ] },
-    sites: { type: 'FeatureCollection', features: CANDIDATE_SITES.map((site, index) => ({ type: 'Feature', properties: { id: site.id, score: site.score, risk: site.risk, intervention: site.intervention, source: 'Derived demonstration candidate' }, geometry: { type: 'Point', coordinates: point([.004,.026,.035][index], [.006,-.018,.014][index]) } })) },
-  };
-}
+export const hasPairedDischarge = (spring) => Number.isFinite(spring.discharge2010) && Number.isFinite(spring.discharge2011);
+export const displayValue = (value, suffix = '') => value === null || value === undefined ? 'Not established in source' : `${value}${suffix}`;
+export function spatialDataFor() { return { recharge: { type: 'FeatureCollection', features: [] }, sites: { type: 'FeatureCollection', features: [] } }; }
