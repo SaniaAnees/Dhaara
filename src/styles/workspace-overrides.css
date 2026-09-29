@@ -1,0 +1,6 @@
+/* Keep the selected study spring legible and intentional. */
+.spring-select { display:grid; gap:6px; margin:14px 0 16px; color:#526350; font-size:.66rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+.spring-select select { width:100%; min-height:42px; padding:0 10px; border:1px solid #b8c9b5; background:#fff; color:#173126; font:600 .78rem Outfit,sans-serif; letter-spacing:0; text-transform:none; }
+.map-dock { border-top:3px solid #91a964; }
+.map-dock h2 { font-size:1.7rem; line-height:1; }
+.dock-metrics b:first-child { color:#244735; }

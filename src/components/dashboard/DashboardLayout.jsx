@@ -3,10 +3,10 @@ import { SPRINGS_DATA } from '../../data/springsData';
 import { InteractiveMap } from './InteractiveMap';
 import { RechargePlanner } from './RechargePlanner';
 import { HealthCardModal } from './HealthCardModal';
-import { ArrowLeft, Droplets, MapPin, Activity, ShieldCheck, Download, Search } from 'lucide-react';
+import { ArrowLeft, Droplets, MapPin, Activity, ShieldCheck, Download, Search, LogOut } from 'lucide-react';
 import { SpotlightCard } from '../kinetics/SpotlightCard';
 
-export const DashboardLayout = ({ onBackToLanding }) => {
+export const DashboardLayout = ({ onBackToLanding, onLogout, user }) => {
   const [selectedSpring, setSelectedSpring] = useState(SPRINGS_DATA[0]);
   const [showHealthCard, setShowHealthCard] = useState(false);
 
@@ -34,6 +34,12 @@ export const DashboardLayout = ({ onBackToLanding }) => {
 
           {/* Spring Selector dropdown */}
           <div className="flex items-center gap-3">
+            {user && (
+              <button onClick={onLogout} className="px-3 py-1.5 rounded-xl bg-dark-800 border border-emerald-500/30 text-emerald-300 text-xs font-mono flex items-center gap-1.5 hover:text-white transition-colors" title={`Sign out ${user.email || ''}`}>
+                <LogOut className="w-3.5 h-3.5" />
+                <span>Log out</span>
+              </button>
+            )}
             <select
               value={selectedSpring.id}
               onChange={(e) => {
