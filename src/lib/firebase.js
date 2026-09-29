@@ -10,9 +10,8 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
-if (['apiKey', 'authDomain', 'projectId', 'appId'].some((key) => !firebaseConfig[key])) {
-  throw new Error('Firebase configuration is incomplete. Check .env.local.');
-}
-
-export const firebaseApp = getApps().length ? getApp() : initializeApp(firebaseConfig);
-export const firebaseAuth = getAuth(firebaseApp);
+// The public workspace is intentionally usable without sign-in. Keep auth
+// optional so a missing client config never prevents judges from viewing it.
+export const firebaseConfigured = !['apiKey', 'authDomain', 'projectId', 'appId'].some((key) => !firebaseConfig[key]);
+export const firebaseApp = firebaseConfigured ? (getApps().length ? getApp() : initializeApp(firebaseConfig)) : null;
+export const firebaseAuth = firebaseApp ? getAuth(firebaseApp) : null;

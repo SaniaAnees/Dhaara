@@ -9,6 +9,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    if (!firebaseAuth) { setLoading(false); return undefined; }
     // Firebase normally resolves immediately from persisted browser state. A short
     // fallback prevents a network hiccup from leaving the product behind a loader.
     const fallbackTimer = window.setTimeout(() => setLoading(false), 1800);
