@@ -62,7 +62,9 @@ export const HeroSection = ({ onOpenDashboard }) => {
           </MagneticButton>
 
           <MagneticButton
-            href="#human-reason"
+            href="https://github.com/SaniaAnees"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto glass-panel border border-emerald-500/30 text-emerald-200 hover:text-emerald-400 hover:border-emerald-400 font-medium text-base px-8 py-4"
           >
             <span>Get Started</span>
