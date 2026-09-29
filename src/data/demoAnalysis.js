@@ -13,6 +13,21 @@ export const DEMO_SPRINGS = [
 ];
 
 export const DEMO_PROFILE = { elevation: '685 m', annualRainfall: '1,450 mm', slope: '14.2°', landCover: 'Forest / mixed agriculture', drainage: '1.7 km/km²', geology: 'Unavailable in demo', observations: 3 };
+// Clearly labelled prototype assessment outputs. They vary by the supplied
+// spring record and are not calibrated predictions or construction advice.
+export const SPRING_ASSESSMENTS = {
+  'AITA-INT': { suitability: 78, confidence: 71, terrain: 'Strong', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Moderate' },
+  'DOKUNG-INT': { suitability: 82, confidence: 74, terrain: 'Strong', rainfall: 'Strong', drainage: 'Good', risk: 'Moderate' },
+  'NUNTHALEY-INT': { suitability: 76, confidence: 69, terrain: 'Good', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Moderate' },
+  'KHARKHAREY-INT': { suitability: 73, confidence: 66, terrain: 'Good', rainfall: 'Moderate', drainage: 'Limited', risk: 'High' },
+  'MALAGIRI-INT': { suitability: 81, confidence: 58, terrain: 'Moderate', rainfall: 'Good', drainage: 'Moderate', risk: 'Partial' },
+  SP1: { suitability: 74, confidence: 61, terrain: 'Good', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Partial' },
+  SP2: { suitability: 77, confidence: 62, terrain: 'Good', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Partial' },
+  SP3: { suitability: 79, confidence: 63, terrain: 'Strong', rainfall: 'Moderate', drainage: 'Moderate', risk: 'Partial' },
+  SP4: { suitability: 80, confidence: 65, terrain: 'Strong', rainfall: 'Good', drainage: 'Good', risk: 'Partial' },
+};
+
+export const assessmentFor = (spring) => SPRING_ASSESSMENTS[spring.spring_id] || SPRING_ASSESSMENTS['AITA-INT'];
 export const EVIDENCE = [['Terrain', 'Strong'], ['Rainfall', 'Strong'], ['LULC', 'Strong'], ['Geology', 'Unavailable'], ['Field data', 'Limited']];
 export const CANDIDATE_SITES = [
   { id: 'SITE A', name: 'Upper contour', score: 91, risk: 'Low', intervention: 'Contour trench', why: ['High recharge suitability', 'Compatible 14° slope', 'Suitable drainage relationship', 'Lower identified risk'] },
@@ -25,13 +40,14 @@ export const sitesGeoJson = { type: 'FeatureCollection', features: [{ type: 'Fea
 
 export function spatialDataFor(spring) {
   if (!Number.isFinite(spring.longitude) || !Number.isFinite(spring.latitude)) return { spring: { type: 'FeatureCollection', features: [] }, recharge: { type: 'FeatureCollection', features: [] }, sites: { type: 'FeatureCollection', features: [] } };
+  const assessment = assessmentFor(spring);
   const [lng, lat] = [spring.longitude, spring.latitude];
   const point = (x, y) => [lng + x, lat + y];
   return {
     spring: { type: 'FeatureCollection', features: [{ type: 'Feature', properties: { name: spring.name, source: 'Demonstration spring record' }, geometry: { type: 'Point', coordinates: [lng, lat] } }] },
     recharge: { type: 'FeatureCollection', features: [
-      { type: 'Feature', properties: { suitability: 88, class: 'High', source: 'Derived demonstration layer' }, geometry: { type: 'Polygon', coordinates: [[point(-.018,-.010), point(-.005,.018), point(.019,.010), point(.011,-.014), point(-.018,-.010)]] } },
-      { type: 'Feature', properties: { suitability: 67, class: 'Moderate', source: 'Derived demonstration layer' }, geometry: { type: 'Polygon', coordinates: [[point(.014,-.020), point(.032,-.002), point(.043,-.020), point(.026,-.034), point(.014,-.020)]] } },
+      { type: 'Feature', properties: { suitability: assessment.suitability, class: 'High', source: 'Derived demonstration layer' }, geometry: { type: 'Polygon', coordinates: [[point(-.018,-.010), point(-.005,.018), point(.019,.010), point(.011,-.014), point(-.018,-.010)]] } },
+      { type: 'Feature', properties: { suitability: Math.max(45, assessment.suitability - 18), class: 'Moderate', source: 'Derived demonstration layer' }, geometry: { type: 'Polygon', coordinates: [[point(.014,-.020), point(.032,-.002), point(.043,-.020), point(.026,-.034), point(.014,-.020)]] } },
     ] },
     sites: { type: 'FeatureCollection', features: CANDIDATE_SITES.map((site, index) => ({ type: 'Feature', properties: { id: site.id, score: site.score, risk: site.risk, intervention: site.intervention, source: 'Derived demonstration candidate' }, geometry: { type: 'Point', coordinates: point([.004,.026,.035][index], [.006,-.018,.014][index]) } })) },
   };
