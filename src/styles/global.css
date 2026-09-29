@@ -1,0 +1,219 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-dark-900: #02140b;
+  --bg-dark-800: #062215;
+  --bg-dark-700: #0c3321;
+  --bg-dark-600: #144830;
+  
+  --emerald-accent: #00ff88;
+  --emerald-bright: #10b981;
+  --teal-water: #06b6d4;
+  --amber-warn: #f59e0b;
+  --rose-risk: #f43f5e;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--bg-dark-900);
+  color: #e2f1e9;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: rgba(6, 34, 21, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 255, 136, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(0, 255, 136, 0.35);
+  box-shadow: 0 12px 40px 0 rgba(0, 255, 136, 0.15);
+  transform: translateY(-2px);
+}
+
+/* 4. Underline Draw */
+.underline-draw {
+  position: relative;
+  text-decoration: none;
+}
+.underline-draw::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--emerald-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.underline-draw:hover::after {
+  transform: scaleX(1);
+}
+
+/* 6. Indeterminate Bar */
+@keyframes indeterminateSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(320%); }
+}
+.animate-indeterminate {
+  animation: indeterminateSweep 1.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* 8. Gradient Shimmer Text */
+.shimmer-text {
+  background: linear-gradient(
+    90deg, 
+    #a7f3d0 0%, 
+    #00ff88 40%, 
+    #38bdf8 60%, 
+    #a7f3d0 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerSweep 3.5s linear infinite;
+}
+@keyframes shimmerSweep {
+  to { background-position: 200% center; }
+}
+
+/* 10. Glitch Text */
+.glitch-wrapper {
+  position: relative;
+}
+.glitch-wrapper:hover::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 2px 0 #00ff88;
+  top: 0;
+  color: #e2f1e9;
+  background: var(--bg-dark-900);
+  overflow: hidden;
+  clip-path: inset(20% 0 30% 0);
+  animation: glitch-anim-1 0.4s steps(2, end) infinite;
+}
+.glitch-wrapper:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -2px 0 #06b6d4;
+  top: 0;
+  color: #e2f1e9;
+  background: var(--bg-dark-900);
+  overflow: hidden;
+  clip-path: inset(50% 0 10% 0);
+  animation: glitch-anim-2 0.4s steps(2, end) infinite;
+}
+@keyframes glitch-anim-1 {
+  0% { transform: translate(0); }
+  50% { transform: translate(-3px, 1px); }
+  100% { transform: translate(0); }
+}
+@keyframes glitch-anim-2 {
+  0% { transform: translate(0); }
+  50% { transform: translate(3px, -1px); }
+  100% { transform: translate(0); }
+}
+
+/* 11. Moiré Lens Field */
+.moire-layer-1 {
+  background: repeating-radial-gradient(circle at 50% 50%, rgba(0,255,136,0.06) 0, rgba(0,255,136,0.06) 2px, transparent 3px, transparent 8px);
+  animation: rotateClockwise 12s linear infinite;
+}
+.moire-layer-2 {
+  background: repeating-radial-gradient(circle at 50% 50%, rgba(6,182,212,0.06) 0, rgba(6,182,212,0.06) 2px, transparent 3px, transparent 8px);
+  animation: rotateCounterClockwise 12s linear infinite;
+}
+@keyframes rotateClockwise { to { transform: rotate(360deg); } }
+@keyframes rotateCounterClockwise { to { transform: rotate(-360deg); } }
+
+/* 14. Variable Weight Transition */
+.variable-weight-text {
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.variable-weight-text:hover {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
+}
+
+/* 16. Dither Bloom Grid */
+.dither-grid {
+  background-image: radial-gradient(rgba(0, 255, 136, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+/* 17. Anamorphic Lens Flare */
+@keyframes flareSweep {
+  0% { transform: translateX(-100%) translateY(-50%); opacity: 0; }
+  30% { opacity: 0.8; }
+  70% { opacity: 0.8; }
+  100% { transform: translateX(200%) translateY(-50%); opacity: 0; }
+}
+.animate-flare {
+  animation: flareSweep 6.4s ease-in-out infinite;
+}
+
+/* Blinking Cursor caret for Typewriter */
+.caret-blink {
+  animation: blink 0.9s steps(2, start) infinite;
+}
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+/* Map marker pulsating ring */
+.pulsating-marker {
+  box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7);
+  animation: pulse-ring 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+@keyframes pulse-ring {
+  to {
+    box-shadow: 0 0 0 14px rgba(0, 255, 136, 0);
+  }
+}
+
+/* Leaflet dark custom tiles override */
+.leaflet-container {
+  background-color: #03140c !important;
+  font-family: var(--font-sans) !important;
+}
+.leaflet-popup-content-wrapper {
+  background: rgba(6, 34, 21, 0.92) !important;
+  color: #e2f1e9 !important;
+  border: 1px solid rgba(0, 255, 136, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+}
+.leaflet-popup-tip {
+  background: rgba(6, 34, 21, 0.92) !important;
+}
