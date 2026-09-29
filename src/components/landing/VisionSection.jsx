@@ -5,14 +5,14 @@ import { MagneticButton } from '../kinetics/MagneticButton';
 export const VisionSection = ({ onOpenDashboard }) => {
   return (
     <section className="relative py-28 overflow-hidden bg-dark-900 border-b border-emerald-900/30">
-      {/* Background Image Layer */}
+      {/* Vibrant Lush Green Tree Backdrop Layer */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/natural-spring-well.png"
-          alt="Natural Spring Orifice"
-          className="w-full h-full object-cover object-center opacity-25 filter brightness-75 contrast-125"
+          src="/images/tribal-huts.png"
+          alt="Lush Green Mango Canopy & Tribal Huts"
+          className="w-full h-full object-cover object-center opacity-70 filter saturate-[1.4] brightness-90"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/80 to-dark-900" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/60 to-dark-900/80" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -43,22 +43,34 @@ export const VisionSection = ({ onOpenDashboard }) => {
         </div>
 
         {/* Final CTA Box */}
-        <div className="glass-panel p-10 sm:p-16 rounded-3xl border border-emerald-500/40 max-w-4xl mx-auto">
-          <h3 className="text-3xl sm:text-5xl font-display font-extrabold text-white mb-6">
-            Find where the water begins.
-          </h3>
+        <div className="relative overflow-hidden glass-panel p-10 sm:p-16 rounded-3xl border border-emerald-400/50 max-w-4xl mx-auto shadow-[0_0_60px_rgba(0,255,136,0.2)]">
+          {/* CTA Internal Backdrop Image */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <img
+              src="/images/natural-spring-well.png"
+              alt="Natural Spring Orifice"
+              className="w-full h-full object-cover opacity-50 filter saturate-[1.3] brightness-90"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/70 to-dark-900/80" />
+          </div>
 
-          <p className="text-emerald-100/80 text-lg mb-8">
-            Explore a spring. Map its recharge. Plan its revival.
-          </p>
+          <div className="relative z-10">
+            <h3 className="text-3xl sm:text-5xl font-display font-extrabold text-white mb-6">
+              Find where the water begins.
+            </h3>
 
-          <MagneticButton
-            onClick={onOpenDashboard}
-            className="bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-dark-900 font-bold px-10 py-5 text-xl shadow-[0_0_40px_rgba(0,255,136,0.6)]"
-          >
-            <span>See It Live</span>
-            <ArrowRight className="w-6 h-6 ml-2" />
-          </MagneticButton>
+            <p className="text-emerald-100/90 text-lg mb-8 font-medium">
+              Explore a spring. Map its recharge. Plan its revival.
+            </p>
+
+            <MagneticButton
+              onClick={onOpenDashboard}
+              className="bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-dark-900 font-bold px-10 py-5 text-xl shadow-[0_0_40px_rgba(0,255,136,0.7)]"
+            >
+              <span>See It Live</span>
+              <ArrowRight className="w-6 h-6 ml-2" />
+            </MagneticButton>
+          </div>
         </div>
 
       </div>

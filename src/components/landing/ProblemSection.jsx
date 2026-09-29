@@ -13,8 +13,18 @@ export const ProblemSection = () => {
   ];
 
   return (
-    <section className="relative py-24 bg-dark-900 border-b border-emerald-900/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 bg-dark-900 border-b border-emerald-900/30 overflow-hidden">
+      {/* Background Image Backdrop */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="/images/tribal-village-hill.jpg"
+          alt="Tribal Village Hillside"
+          className="w-full h-full object-cover opacity-50 filter saturate-[1.25] brightness-85"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-900/95 via-dark-900/85 to-dark-900/90" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           

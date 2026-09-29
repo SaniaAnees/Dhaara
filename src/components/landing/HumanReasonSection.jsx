@@ -5,8 +5,18 @@ import { HeartHandshake, Droplets, Wheat, Footprints, Trees } from 'lucide-react
 
 export const HumanReasonSection = () => {
   return (
-    <section id="human-reason" className="relative py-24 bg-dark-800/80 border-y border-emerald-900/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="human-reason" className="relative py-24 bg-dark-800/80 border-y border-emerald-900/30 overflow-hidden">
+      {/* Background Image Backdrop */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="/images/tribal-community-1.png"
+          alt="Tribal Village in Lush Forest Valley"
+          className="w-full h-full object-cover opacity-60 filter saturate-[1.3] brightness-90"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-900/90 via-dark-900/80 to-dark-900/95" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

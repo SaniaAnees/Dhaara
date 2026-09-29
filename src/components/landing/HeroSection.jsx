@@ -7,15 +7,15 @@ import { Typewriter } from '../kinetics/Typewriter';
 export const HeroSection = ({ onOpenDashboard }) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center pt-12 pb-24 overflow-hidden">
-      {/* Background Image Layer with Emerald Mask */}
+      {/* Full Vibrant Green Landscape Backdrop */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/hero-landscape.png"
           alt="Indian Mountain Terraced Landscape"
-          className="w-full h-full object-cover object-center opacity-30 filter saturate-[1.2] brightness-75 scale-105"
+          className="w-full h-full object-cover object-center opacity-85 filter saturate-[1.35] brightness-90 transition-transform duration-1000 scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-900/90 via-dark-900/80 to-dark-900" />
-        <div className="absolute inset-0 dither-grid opacity-25 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-900/70 via-dark-900/50 to-dark-900/90" />
+        <div className="absolute inset-0 bg-emerald-950/20 mix-blend-color-dodge pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
